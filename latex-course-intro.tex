@@ -234,6 +234,33 @@ and \textcolor{green}{starts}.
 \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection*{Non-ASCII characters}
+\begin{frame}[fragile]{\insertsubsection}
+\begin{itemize}
+
+\item If you write non-ASCII characters, you must scape accents:
+\begin{itemize}
+  \item \bftt{Castell\textbackslash\'{}\{o\}} $\to$ \bftt{Castell\'{o}}
+  \item \bftt{Val\textbackslash\`{}\{e\}ncia} $\to$ \bftt{Val\`{e}ncia}
+  \item \bftt{Espa\textbackslash\textasciitilde{}\{n\}a} $\to$ \bftt{Espa\~{n}a}
+  \item \bftt{Biling\textbackslash"\{u\}ismo} $\to$ \bftt{Biling\"{u}ismo}
+\end{itemize}
+
+\item Better: add this to the preamble of the document:
+
+\begin{minted}[fontsize=\small,frame=single]{latex}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\end{minted}
+
+\item This way you won't need to scape accents.
+
+\end{itemize}
+\end{frame}
+
 
 
 
@@ -719,37 +746,6 @@ Click to open the model document}}
 \tableofcontents[currentsection]
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Special characters}
-\begin{frame}[fragile]{\insertsubsection}
-\begin{itemize}
-
-\item If you write non-ascii characters, you must scape accents:
-\begin{itemize}
-  \item \bftt{Castell\textbackslash\'{}\{o\}} $\to$ \bftt{Castell\'{o}}
-  \item \bftt{Val\textbackslash\`{}\{e\}ncia} $\to$ \bftt{Val\`{e}ncia}
-  \item \bftt{Espa\textbackslash\textasciitilde{}\{n\}a} $\to$ \bftt{Espa\~{n}a}
-  \item \bftt{Biling\textbackslash"\{u\}ismo} $\to$ \bftt{Biling\"{u}ismo}
-\end{itemize}
-
-\item For a few words it's OK, but for a whole document, this is overkill!
-
-\item If you want to write a whole document in Spanish, add this to the preamble:
-
-\begin{minted}[fontsize=\small,frame=single]{latex}
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc} 
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\end{minted}
-
-\item This way you won't need to scape accents.
-
-\end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
