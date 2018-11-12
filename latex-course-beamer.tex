@@ -1,0 +1,212 @@
+\documentclass{beamer}
+
+\input{preamble.tex}
+
+\subtitle{Presentations with \protect\bftt{beamer}}
+
+\newcommand{\alice}[1]{\todo[color=green!40]{#1}}
+\newcommand{\bob}[1]{\todo[color=purple!40]{#1}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Presentations with \protect\bftt{beamer}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsection}
+\begin{itemize}
+\item Beamer is a package for creating presentations (such as this one!) in
+\LaTeX{}.
+\item It provides the \bftt{beamer} document class.
+\item Use the \bftt{frame} environment to create slides.
+\end{itemize}
+\begin{minipage}{0.55\linewidth}
+\inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
+  {beamer-minimal.tex}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+% trim: l b r t
+\includegraphics[width=\textwidth,clip,trim=1in 1in 1in 1in]{beamer-minimal.pdf}
+\end{minipage}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsection: Following Along}
+
+\begin{itemize}
+\item As we go through the following slides, try out the examples by typing them
+into the example document on \wllogo.
+\end{itemize}
+\vskip 2ex
+\begin{center}
+\fbox{\href{\wlnewdoc{beamer-minimal.tex}}{%
+Click to open the example document in \wllogo{}}}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{\insertsection: Frames}
+\begin{itemize}
+\item Use \cmdbs{frametitle} to give the frame a title.
+\item Then add content to the frame.
+\item The source for this frame looks like:
+\vskip 2ex
+\inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
+  {beamer-frame.tex}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsection: Sections}
+\begin{itemize}
+\item You can use \cmdbs{section}s to group your \bftt{frame}s, and
+\bftt{beamer} will use them to create an automatic outline.
+\item To generate an outline, use the \cmdbs{tableofcontents} command. Here's
+one for this presentation. The \bftt{currentsection} option highlights the current section.
+\vskip 2ex
+\begin{exampletwouptiny}
+\tableofcontents[currentsection]
+\end{exampletwouptiny}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsection: Multiple Columns}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item Use the \bftt{columns} and \bftt{column} environments to break the slide
+into columns.
+\item The argument for each \bftt{column} determines its width.
+\item See also the \bftt{multicol} package, which automatically breaks your
+content into columns.
+\end{itemize}
+\end{column}
+\begin{column}{0.6\textwidth}
+\begin{minted}[fontsize=\scriptsize,frame=single]{latex}
+\begin{columns}
+  \begin{column}{0.4\textwidth}
+    \begin{itemize}
+    \item Use the columns ...
+    \item The argument ...
+    \item See also the ...
+    \end{itemize}
+  \end{column}
+  \begin{column}{0.6\textwidth}
+    % second column
+  \end{column}
+\end{columns}
+\end{minted}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsection: Blocks}
+\begin{itemize}
+\item A \bftt{block} environment makes a titled box.
+\begin{exampletwouptiny}
+\begin{block}{Interesting Fact}
+This is important.
+\end{block}
+
+\begin{alertblock}{Cautionary Tale}
+This is really important!
+\end{alertblock}
+\end{exampletwouptiny}
+
+\item How exactly they look depends on the theme\ldots
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{\insertsection: Themes}
+\begin{itemize}
+\item Customise the look of your presentation using themes.
+\item See \url{http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html}
+for a large collection of themes.
+\end{itemize}
+\begin{minipage}{0.55\linewidth}
+\inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
+  {beamer-theme.tex}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+% trim: l b r t
+\includegraphics[width=\textwidth]{beamer-theme.pdf}
+\end{minipage}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsection: Animation}
+\begin{itemize}
+\item A frame can generate multiple slides.
+\item Use the \cmdbs{pause} command to show only part of a slide.
+\vskip 2ex
+\begin{exampletwouptinynoframe}
+\begin{itemize}
+\item Can you feel the 
+\pause \item anticipation?
+\end{itemize}
+\end{exampletwouptinynoframe}
+\vskip 2ex
+\item There many more clever ways of making animations in \bftt{beamer}; see
+also the \cmdbs{only}, \cmdbs{alt}, and \cmdbs{uncover} commands.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsection: Exercise}
+
+Recreate Peter Norvig's excellent ``Gettysburg Powerpoint Presentation'' in \bftt{beamer}.\footnote{\url{http://norvig.com/Gettysburg}}
+
+\begin{enumerate}
+\item Open this exercise in \wllogo{}:
+\begin{center}
+\fbox{\href{\wlnewdoc{beamer-exercise.tex}}{%
+Click to open this exercise in \wllogo{}}}
+\end{center}
+\vskip 2ex
+\item Download this image to your computer and upload it to \wllogo{} via the
+files menu.
+\begin{center}
+\fbox{\href{\fileuri/gettysburg_graph.png?dl=1}{Click to download image}}
+\end{center}
+\vskip 2ex
+\item Add \LaTeX{} commands to the text to make it look like this one:
+\begin{center}
+\fbox{\href{\fileuri/beamer-exercise-solution.pdf}{%
+Click to open the model document}}
+\end{center}
+\end{enumerate}
+\end{frame}
+
+\end{document}
